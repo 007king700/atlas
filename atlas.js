@@ -1,19 +1,24 @@
+// Přidání posluchače události na změnu výběru kontinentu
 document.getElementById('continent-select').addEventListener('change', function () {
-    fetchCountries(this.value);
+    fetchCountries(this.value);  // Načtení zemí podle vybraného kontinentu
 });
 
+// Funkce pro načtení zemí podle regionu
 function fetchCountries(region) {
     fetch(`https://restcountries.com/v3.1/region/${region}`)
-        .then(response => response.json())
+        .then(response => response.json())  // Převedení odpovědi na JSON
         .then(countries => {
-            displayCountries(countries);
+            displayCountries(countries);  // Zobrazení zemí
         })
-        .catch(error => console.error('Error loading the countries:', error));
+        .catch(error => console.error('Chyba při načítání zemí:', error));  // Zachycení a logování chyb
 }
 
+// Funkce pro zobrazení zemí na stránce
 function displayCountries(countries) {
     const countriesContainer = document.getElementById('staty');
-    countriesContainer.innerHTML = ''; // Clear previous countries
+    countriesContainer.innerHTML = '';  // Vyčištění předchozích zemí
+
+    // Generování HTML pro každou zemi
     countries.forEach(country => {
         const countryHtml = `
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
@@ -46,20 +51,19 @@ function displayCountries(countries) {
             </div>
         </div>
         `;
-        countriesContainer.innerHTML += countryHtml;
+        countriesContainer.innerHTML += countryHtml;  // Přidání HTML země do kontejneru
     });
 
-    // Initialize maps after the countries have been displayed
+    // Inicializace map po zobrazení zemí
     countries.forEach(country => {
         const mapDiv = document.getElementById(`map${country.cca3}`);
         const mapOptions = {
             center: new google.maps.LatLng(country.latlng[0], country.latlng[1]),
             zoom: 6
         };
-        new google.maps.Map(mapDiv, mapOptions);
+        new google.maps.Map(mapDiv, mapOptions);  // Vytvoření mapy pro každou zemi
     });
 }
 
-
-// Load initial data for Europe
+// Načtení dat pro Evropu
 fetchCountries('europe');
