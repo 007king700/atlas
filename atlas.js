@@ -39,7 +39,7 @@ function displayCountries(countries) {
                                 <br>Rozloha: ${country.area.toLocaleString()} km²
                                 <br>Jazyky: ${Object.values(country.languages).join(', ')}
                             </div>
-                            <div class="col-md-6" id="map${country.cca3}" style="height: 250px;"></div>
+                            <div class="col-md-6" id="map${country.cca3}" style="height: 500px; width: 800px"></div>
                         </div>
                     </div>
                 </div>
