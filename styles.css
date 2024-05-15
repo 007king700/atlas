@@ -1,0 +1,93 @@
+/* Základní reset a nastavení písma */
+body, h1, h2, h3, h4, h5, h6, p, .btn {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Tmavé pozadí a světlý text */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    background: #333;
+    color: #ffffff;
+}
+
+/* Styl hlavičky */
+header h1 {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 24px;
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+
+/* Úprava vzhledu karet */
+.card {
+    background: #1e1e1e;
+    border: none;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card .card-body {
+    padding: 15px;
+}
+
+.card .card-title {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.card .card-text {
+    font-size: 14px;
+    color: #adadad;
+}
+
+/* Dropdown a tlačítka */
+.form-select {
+    background: #333;
+    color: #e0e0e0;
+    border: none;
+}
+
+.form-select:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Styl modálního okna */
+.modal-content {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+.modal-header, .modal-body {
+    padding: 20px;
+}
+
+/* Styling patičky */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #222;
+    color: #ccc;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+iframe {
+    border-radius: 8px;
+    overflow: hidden;
+}
